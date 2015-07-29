@@ -1,3 +1,5 @@
+var utils = require('./lib/utils');
+
 var initWebsocketServer = function(httpServer) {
   var io = require('socket.io').listen(httpServer);
 
@@ -14,6 +16,13 @@ var initWebsocketServer = function(httpServer) {
 
     socket.on('updateEvent', function(data) {
       io.sockets.emit('updateEvent', data);
+    });
+
+    socket.on('askQuestion', function(payload) {
+      var message = payload.data.message;
+      utils.checkPremiumUser(message.email, function(isPremium) {
+        if (isPremium) io.to(message.sessionId).emit('newQuestion', payload);
+      });
     });
 
     socket.on('disconnect', function() {
