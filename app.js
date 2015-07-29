@@ -57,7 +57,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3003;
 
 var httpServer = server.listen(port, function() {
   console.log(" app is running at localhost:" + port);
