@@ -15,6 +15,10 @@ var initWebsocketServer = function(httpServer) {
     socket.on('disconnect', function() {
       console.log('user disconnected!');
     });
+
+    socket.on('change-event-status', function(data) {
+      io.emit('change-event-status', data);
+    });
   });
 
   return io;
