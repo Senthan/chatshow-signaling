@@ -13,6 +13,7 @@ var initWebsocketServer = function(httpServer) {
     });
 
     socket.on('qualityUpdate', function(data) {
+      console.log('qualityUpdate', data);
       io.to(data.sessionId).emit('qualityUpdate', data);
     });
 
