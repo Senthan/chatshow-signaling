@@ -12,6 +12,10 @@ var initWebsocketServer = function(httpServer) {
       io.to(data.sessionId).emit('userSnapshot', data);
     });
 
+    socket.on('qualityUpdate', function(data) {
+      io.to(data.sessionId).emit('qualityUpdate', data);
+    });
+
     socket.on('disconnect', function() {
       console.log('user disconnected!');
     });
