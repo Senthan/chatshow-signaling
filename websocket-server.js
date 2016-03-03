@@ -19,6 +19,10 @@ var initWebsocketServer = function(httpServer) {
     socket.on('change-event-status', function(data) {
       io.emit('change-event-status', data);
     });
+
+    socket.on('newProducer', function(data) {
+      io.emit('newProducer', data);
+    });
   });
 
   return io;
