@@ -23,6 +23,10 @@ var initWebsocketServer = function(httpServer) {
     socket.on('newProducer', function(data) {
       io.emit('newProducer', data);
     });
+
+    socket.on('blockProducer', function(data) {
+      io.emit('blockProducer', data);
+    });
   });
 
   return io;
