@@ -1,6 +1,6 @@
 {
-  "name": "chatshow-signaling",
-  "version": "0.0.0",
+  "name": "ib-signaling",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
